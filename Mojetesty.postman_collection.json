@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "cab51d2d-e1a4-413e-a4d5-36361a71dcac",
+		"name": "Mojetesty",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32299989",
+		"_collection_link": "https://warped-eclipse-780863.postman.co/workspace/Team-Workspace~772f9db6-c19f-4a1f-8982-55bbf844240b/collection/32299989-cab51d2d-e1a4-413e-a4d5-36361a71dcac?action=share&source=collection_link&creator=32299989"
+	},
+	"item": [
+		{
+			"name": "User not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('User not found', function () {\r",
+							"    pm.expect(pm.response.code).to.equal(404);\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.equal('application/json');\r",
+							"    pm.expect(pm.response.json()).to.be.an('object');\r",
+							"    pm.expect(pm.response.json().code).to.exist.and.to.be.a('string');\r",
+							"    pm.expect(pm.response.json().message).to.exist.and.to.be.a('string');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userName\": \"testsss\",\r\n  \"password\": \"Test123*\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://demoqa.com/Account/v1/Authorized",
+					"protocol": "https",
+					"host": [
+						"demoqa",
+						"com"
+					],
+					"path": [
+						"Account",
+						"v1",
+						"Authorized"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
